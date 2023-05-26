@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>E-commerce Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    /* Custom CSS styles */
+    .product {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+  <script>
+    function search() {
+      var searchTerm = document.getElementById("searchInput").value;
+      var searchResults = document.getElementById("searchResults");
+      searchResults.innerHTML = "";
+
+      var products = document.getElementsByClassName("product");
+      var matchingProducts = [];
+
+      for (var i = 0; i < products.length; i++) {
+        var product = products[i];
+        var productName = product.getElementsByTagName("h3")[0].textContent;
+
+        if (productName.toLowerCase().includes(searchTerm.toLowerCase())) {
+          matchingProducts.push(product);
+        }
+      }
+
+      if (matchingProducts.length > 0) {
+        searchResults.innerHTML = "Search Results for: " + searchTerm;
+        matchingProducts.forEach(function (product) {
+          searchResults.appendChild(product.cloneNode(true));
+        });
+      } else {
+        searchResults.innerHTML = "No results found for: " + searchTerm;
+      }
+    }
+  </script>
+</head>
+<body>
+  <div data-role="page" id="home">
+    <div data-role="header">
+      <h5>E-commerce site</h5>
+      <div data-role="main" class="ui-title">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#contact" data-icon="phone">Contact Us</a></li>
+            <li><a href="#search" data-icon="search">Search</a></li>
+            <li><a href="#user" data-icon="user">User</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div data-role="content">
+      <h2>Featured Electronics</h2>
+      <div class="product">
+        <h3>Electronic Toothbrush</h3>
+        <img src="product1.jpg" alt="Product 1 Image" style="width: 200px;">
+        <p>The Electronic Toothbrush is a state-of-the-art dental care device designed to improve<br> your oral hygiene routine. With advanced features like oscillating bristles and built-in timers, <br>it ensures thorough cleaning and optimal brushing time. The electronic toothbrush offers multiple cleaning modes, such as daily<br> cleaning, sensitive teeth, and gum care, to cater to individual needs. It provides a more effective and efficient way <br>to maintain oral health, leaving your teeth feeling clean and refreshed.</p>
+        <a href="#product1" data-role="button">View Details</a>
+      </div>
+
+      <div class="product">
+        <h3>Sandisk</h3>
+        <img src="product2.jpg" alt="Product 2 Image" style="width: 200px;">
+        <p>The SanDisk Pendrive is a compact and portable        storage solution that allows you to easily transfer and store your data. With its high-speed USB 3.0 interface, it offers fast data transfer rates, making it ideal for transferring large files or backing up important documents. The pendrive is compatible with various devices and operating systems, ensuring versatility and convenience. Whether you need to store your personal files, transfer data between devices, or create backups, the SanDisk Pendrive provides a reliable and convenient storage solution.</p>
+        <a href="#product2" data-role="button">View Details</a>
+      </div>
+
+      <div class="product">
+        <h3>Speaker</h3>
+        <img src="product3.jpg" alt="Product 3 Image" style="width: 200px;">
+        <p>The Wireless Headphones provide a seamless and immersive audio experience. With their wireless connectivity and high-quality sound, they allow you to enjoy your favorite music, movies, and games without the hassle of tangled wires. The headphones feature a comfortable over-ear design and adjustable headband for a customized fit. They also have built-in controls for easy playback and volume adjustment. Whether you're at home, in the office, or on the go, the wireless headphones offer convenience and superior sound quality.</p>
+        <a href="#product3" data-role="button">View Details</a>
+      </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+
+  <div data-role="page" id="search">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back</a>
+      <h5>Search</h5>
+    </div>
+
+    <div data-role="content">
+      <input type="text" id="searchInput" placeholder="Search products..." oninput="search()">
+      <div id="searchResults"></div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+
+  <div data-role="page" id="product1">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back</a>
+      <h5>Electric Toothbrush</h5>
+    </div>
+
+    <div data-role="content">
+      <h2>Electric Toothbrush</h2>
+      <img src="product1.jpg" alt="Product 1 Image" style="width: 200px;">
+      <p>Product 1 is a high-quality electronic toothbrush designed to improve your oral hygiene routine. With its advanced features and multiple cleaning modes, it provides a thorough and efficient cleaning experience. Whether you have sensitive teeth or need extra gum care, this electronic toothbrush caters to your specific needs. It's a reliable and convenient tool for maintaining oral health.</p>
+      <a href="#home" data-role="button">Back to Home</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+
+  <div data-role="page" id="product2">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back
+        <h5>Sandisk</h5>
+    </div>
+  
+    <div data-role="content">
+      <h2>Sandisk</h2>
+      <img src="product2.jpg" alt="Product 2 Image" style="width: 200px;">
+      <p>Product 2 is a high-speed USB pendrive designed for easy data transfer and storage. With its compact and portable design, it allows you to carry your files wherever you go. The USB 3.0 interface ensures fast data transfer rates, making it perfect for large files or backups. Compatible with various devices and operating systems, this pendrive offers convenience and reliable storage solution.</p>
+      <a href="#home" data-role="button">Back to Home</a>
+    </div>
+  
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+  
+  <div data-role="page" id="product3">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back</a>
+      <h5>Wireless headphone</h5>
+    </div>
+  
+    <div data-role="content">
+      <h2>Wireless headphone</h2>
+      <img src="product3.jpg" alt="Product 3 Image" style="width: 200px;">
+      <p>Product 3 is a wireless headphone that provides a seamless and immersive audio experience. With its wireless connectivity, you can enjoy your favorite music, movies, and games without the hassle of wires. The headphones feature a comfortable over-ear design and adjustable headband for a customized fit. With built-in controls, you can easily adjust playback and volume. Whether you're at home or on the go, these wireless headphones offer convenience and superior sound quality.</p>
+      <a href="#home" data-role="button">Back to Home</a>
+    </div>
+  
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+  
+  <div data-role="page" id="contact">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back</a>
+      <h5>Contact Us</h5>
+    </div>
+  
+    <div data-role="content">
+      <h2>Contact Information</h2>
+      <p>For any inquiries or support, please contact us:</p>
+      <p>Email: info@example.com</p>
+      <p>Phone: 123-456-7890</p>
+    </div>
+  
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+  
+  <div data-role="page" id="user">
+    <div data-role="header">
+      <a href="#home" data-rel="back" data-icon="back">Back</a>
+      <h5>User</h5>
+    </div>
+  
+    <div data-role="content">
+      <h2>User Information</h2>
+      <p>Welcome, user! You can manage your account and preferences here.</p>
+      <!-- Add user-related content and functionality here -->
+    </div>
+  
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h5>&copy; 2023 E-commerce Site. All rights reserved.</h5>
+    </div>
+  </div>
+  
+  </body>
+  </html>
+    

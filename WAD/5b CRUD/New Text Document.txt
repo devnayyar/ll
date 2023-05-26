@@ -1,0 +1,3 @@
+npm i mongoose express
+node server.js
+passford : asdf

@@ -1,0 +1,126 @@
+DEBUGGING STEPS FOR PYTHON:
+
+( Make sure python27's path is added to the system path variable )
+
+If still python is not executing:
+
+Go to C:/python27 and open the terminal ( type cmd in the address bar [ where the file path is visible ] )
+Now run Python commands from there using the "python" or "python.exe" keyword.
+
+DEBUGGING STEPS FOR CLOUDSIM:
+
+Download Eclipse 2017 JAVA EE Developers version from:
+https://www.eclipse.org/downloads/packages/release/oxygen/2
+
+( This worked for me. )
+( If still not working consult someone else. )
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+DRIVE LINK: - https://drive.google.com/drive/folders/1CQIjkVgNzzuV1c34RumIbdiUW52lzE1K?usp=share_link
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ASSIGNMENT 1
+
+app.yaml file: ->
+runtime: python27
+api_version: 1
+threadsafe: false
+
+handlers:
+- url: /
+  script: index.py
+
+To run: ->
+Open Command Prompt with Admin Privileges.
+$ py <path of dev_appserver.py> <path of folder containing app.yaml file>
+or
+$ python <path of dev_appserver.py> <path of folder containing app.yaml file>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ASSIGNMENT 2
+
+Steps: 
+> Create 1 Folder. 
+> Add the "app.yaml" file inside it.
+> Create 1 Folder and name it "www", and place your website code. Make sure your main webpage is named with "index.html". 
+
+app.yaml file:->
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: www/index.html
+  upload: www/index.html
+
+- url: /(.*)
+  static_files: www/\1
+  upload: www/(.*)
+
+To run: ->
+Open Command Prompt with Admin Privileges.
+$ py <path of dev_appserver.py> <path of folder containing app.yaml file>
+or
+$ python <path of dev_appserver.py> <path of folder containing app.yaml file>
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ASSIGNMENT 3 
+
+Step 3: - Open Eclipse
+
+> new -> project -> java project -> Add project name 
+> Open Eclipse in your confined workspace
+> Click on new and open a new JAVA Project, give it a name
+> Create a package inside the src folder.
+> Dump in all the files here inside the package.
+> Now right-click on the project and choose "configure build path".
+> Click on the libraries section and add external jars
+> Extract the Cloudsim.tar file you downloaded
+> Now import the jar files in that Cloudsim.tar into the external jars.
+> Do remember to change the name of the package in all the source files.
+> Now right-click on the project and run the project as JAVA Application.
+> Select the SJF_Scheduler.java file present in the list.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ASSIGNMENT 4
+
+Steps:
+> Create 2 Virtual Machines.
+> Use ubuntu vmdk file as a pre-existing disk while VM Creation.
+> Now go to the properties of both VMs and change the Network Settings. Change the Adapter to Bridge``							 Network and select the available NAT 			 				 							Network. If (Not available) is selected, then choose Bridge Adapter and rest default.
+> Start both VMs. Username and Password are: vagrant
+> Check the IP Addresses of both the VMs (inet address on top), and make sure they are different. If they are the same, then restart both. 
+> Create a file that you want to transfer from 1st VM. 
+
+Command: 
+$ echo "Anything" >> anything.txt
+ 
+The command for scp (Secure Copy):
+$ scp <filename> vagrant@<ip_address_of_2nd_VM>:/home/vagrant
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ASSIGNMENT 8
+
+Download "python-docs-sample" from the drive link.
+
+Steps: 
+> Go to Firebase Console ( https://console.firebase.google.com ).
+> Create a Project. Click on Add Web Application and create a web application.
+> Add authentication using Google.
+> Now go to Project settings and scroll down to the code part. ( this is app config ).
+> Now make changes to the following files 
+	../backend/app.yaml ( add project id )
+	../frontend/main.js ( change config )
+
+To run: - 
+$ python <path of dev_appserver.py> <path of backend folder> <path of frontend folder> --port 9100
+or
+$ py <path of dev_appserver.py> <path of backend folder> <path of frontend folder> --port 9100
+
